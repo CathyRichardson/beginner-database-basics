@@ -117,3 +117,31 @@ SELECT sum(product_price * quantity) FROM orders;
 SELECT sum(product_price * quantity) 
 FROM orders
 WHERE person_id = 22;
+
+
+-- TABLE - ARTIST
+-- #1\
+INSERT INTO artist
+(name)
+VALUES 
+('name1'),
+('name2'),
+('name3');
+
+-- #2
+SELECT * FROM artist
+ORDER BY name DESC
+LIMIT 10;
+
+-- #3
+SELECT * FROM artist
+ORDER BY name ASC
+LIMIT 5;
+
+-- #4
+SELECT * FROM artist
+WHERE name ILIKE 'Black%';
+
+-- #5
+SELECT * FROM artist
+WHERE name ILIKE '%Black%';
