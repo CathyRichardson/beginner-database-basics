@@ -1,7 +1,6 @@
 
 -- TABLE PERSON
 -- #1
-
 CREATE TABLE person (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100),
@@ -44,9 +43,6 @@ WHERE age = 18;
 -- #8
 SELECT * FROM person
 WHERE age < 20 OR age > 30;
-
-
-
 
 -- #9
 SELECT * FROM person
@@ -119,6 +115,7 @@ FROM orders
 WHERE person_id = 22;
 
 
+
 -- TABLE - ARTIST
 -- #1
 INSERT INTO artist
@@ -147,6 +144,7 @@ SELECT * FROM artist
 WHERE name ILIKE '%Black%';
 
 
+
 -- TABLE - EMPLOYEE
 -- #1
 SELECT first_name, last_name FROM employee
@@ -173,3 +171,34 @@ WHERE reports_to = 2;
 --#5
 SELECT count(*) FROM employee
 WHERE city = 'Lethbridge';
+
+
+
+-- TABLE - INVOICE
+-- #1
+SELECT count(*) FROM invoice
+WHERE billing_country = 'USA';
+
+-- #2
+SELECT max(total) FROM invoice;
+
+-- #3
+SELECT min(total) FROM invoice;
+
+-- #4
+SELECT * FROM invoice
+WHERE total > 5;
+
+-- #5
+SELECT count(*) FROM invoice
+WHERE total < 5;
+
+-- #6
+SELECT count(*) FROM invoice
+WHERE billing_state IN ('CA', 'TX','AZ');
+
+-- #7
+SELECT avg(total) FROM invoice;
+
+-- #8
+SELECT sum(total) FROM invoice;
