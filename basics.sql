@@ -45,6 +45,9 @@ WHERE age = 18;
 SELECT * FROM person
 WHERE age < 20 OR age > 30;
 
+
+
+
 -- #9
 SELECT * FROM person
 WHERE age != 27;
@@ -77,3 +80,40 @@ WHERE favorite_color IN ('orange', 'green', 'blue');
 -- #14
 SELECT * FROM person
 WHERE favorite_color IN ('yellow', 'purple');
+
+
+
+-- TABLE ORDERS
+-- #1
+CREATE TABLE orders (
+order_id SERIAL PRIMARY KEY, 
+person_id INTEGER UNIQUE, 
+product_name VARCHAR(200), 
+product_price DOUBLE PRECISION, 
+quantity INTEGER
+);
+
+-- #2
+INSERT INTO orders
+(person_id, product_name, product_price, quantity)
+VALUES
+(12, 'order name', 12.33, 5),
+(16, 'order name2', 89.17, 1),
+(72, 'order name3', 17.88, 3),
+(22, 'order name4', 888.90, 1),
+(26, 'order name5', 20.17, 1),
+(45, 'order name6', 13.45, 8);
+
+-- #3
+SELECT * FROM orders;
+
+-- #4
+SELECT sum(quantity) FROM orders;
+
+-- #5
+SELECT sum(product_price * quantity) FROM orders;
+
+-- #6
+SELECT sum(product_price * quantity) 
+FROM orders
+WHERE person_id = 22;
